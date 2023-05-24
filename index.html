@@ -3,9 +3,85 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+    <title>Background Video Slider</title>
+    <link rel="stylesheet" href="style.css">
+    <header>
+        <a href="#" class="brand">Travel</a>
+        <div class="menu-btn"></div>
+        <div class="navigation">
+            <div class="navigation-items">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Explore</a>
+                <a href="#">Gallery</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="home">
+        <video class="video-slide active" src="/videos/Japan1.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="/videos/Japan2.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="/videos/Japan3.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="/videos/japan4.mp4" autoplay muted loop></video>
+        <video class="video-slide" src="/videos/Japan5.mp4" autoplay muted loop></video>
+        <div class="content">
+            <h1>Japan</h1>
+            <h2>Culture, Beauty and Beyond</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quam natus expedita, officiis dolore nemo, doloribus repellendus voluptate, laudantium blanditiis sequi aliquam sit ipsa repellat! Aspernatur dicta ut tempora dolorem numquam cum. Id delectus illum sapiente fugit beatae quo culpa.</p> <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum voluptatibus at fuga nesciunt quasi similique est, aspernatur tempora sed dignissimos voluptas facere earum, iste, odit debitis exercitationem voluptatem? Veniam, nostrum.
+            </p>
+            <a href="#">Read More</a>
+        </div>
+        <div class="media-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <div class="slider-navigation">
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+            <div class="nav-btn"></div>
+        </div>
+    </section>
+
+    <script src="https://kit.fontawesome.com/5cc88a8621.js" crossorigin="anonymous"></script>
     
+    <script type="text/javascript">
+
+        const menuBtn = document.querySelector(".menu-btn");
+        const navigation = document.querySelector(".navigation");
+
+        menuBtn.addEventListener("click", () => {
+            menuBtn.classList.toggle ("active");
+            navigation.classList.toggle ("active");
+        });
+
+        const btns = document.querySelectorAll(".nav-btn");
+        const slides = document.querySelectorAll(".video-slide");
+
+        var sliderNav = function(manual){
+
+            btns.forEach((btn) => {
+                btn.classList.remove("active");
+            });
+
+            slides.forEach((slide) => {
+                slide.classList.remove("active");
+            });
+
+            btns[manual].classList.add("active");
+            slides[manual].classList.add("active");
+        }
+
+        btns.forEach((btn, i) => {
+            btn.addEventListener("click", () => { 
+                sliderNav(i);
+            });
+        });
+    </script>
+</body>
 </body>
 </html>
